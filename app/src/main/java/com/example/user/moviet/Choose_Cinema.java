@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -24,11 +25,11 @@ public class Choose_Cinema extends AppCompatActivity {
         ListOfCinemas.add("Ariel");
         ListOfCinemas.add("Itzhar");
         ListOfCinemas.add("Haifa");
-        ListOfCinemas.add("jerusalem");
+        ListOfCinemas.add("Jerusalem");
         ListOfCinemas.add("Beer-Sheva");
-        ListOfCinemas.add("Hispin");
-        ListOfCinemas.add("Katzrin");
-        ListOfCinemas.add("Tzfat");
+//        ListOfCinemas.add("Hispin");
+//        ListOfCinemas.add("Katzrin");
+//        ListOfCinemas.add("Tzfat");
 
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,ListOfCinemas);
@@ -40,9 +41,12 @@ public class Choose_Cinema extends AppCompatActivity {
                 Intent myIntent = new Intent(getBaseContext(), Choose_Date.class);
                 startActivity(myIntent);
 
-                  //Toast.makeText(Order_Movie.this, "hannnniiii" + position + " " + ListOfCinemas.get(position).toString(),Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(Choose_Cinema.this, "hannnniiii" + position + " " + ListOfCinemas.get(position).toString(),Toast.LENGTH_SHORT).show();
             }
+
+
         });
+
     }
 
 }

@@ -25,7 +25,8 @@
         <activity android:name=".Order_Movie" />
         <activity android:name=".Choose_Cinema" />
         <activity android:name=".Choose_Genre" />
-        <activity android:name=".Choose_Date"></activity>
+        <activity android:name=".Choose_Date" />
+        <activity android:name=".Choose_Movie"></activity>
     </application>
 
 </manifest>
