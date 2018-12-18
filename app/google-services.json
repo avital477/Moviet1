@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "946837612186",
+    "firebase_url": "https://moviet-15dbc.firebaseio.com",
+    "project_id": "moviet-15dbc",
+    "storage_bucket": "moviet-15dbc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946837612186:android:3eb20f3ce8c30fc5",
+        "android_client_info": {
+          "package_name": "com.example.user.moviet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946837612186-9sugl5ukbkir0brdobguflramcn3uuc4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.user.moviet",
+            "certificate_hash": "a17ab7145b53bf5acab3f5845b0cbb9f4f264134"
+          }
+        },
+        {
+          "client_id": "946837612186-6k2ao4ga0aouedqji1p2856j3sal3qns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtUfLdUq67R_7bZKV9rF5HpcdSFF7XPC0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946837612186-6k2ao4ga0aouedqji1p2856j3sal3qns.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
