@@ -1,43 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Choose_Cinema">
 
-    <ListView
-        android:id="@+id/listview"
-        android:layout_width="wrap_content"
-        android:layout_height="350dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="78dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="83dp" />
+    <!--aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="318dp"
-        android:layout_height="29dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="41dp"
-        android:layout_marginLeft="41dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="459dp"
-        android:text="Choose Cinema:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="100dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:text="\n\nChoose Cinema  \n"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+        <Spinner
+            android:id="@+id/spCountries"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/country_arrays"
+            android:prompt="@string/country_prompt"></Spinner>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="\n \nSelect Genre \n "
+            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+        <Spinner
+            android:id="@+id/spBussinessType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/business_arrays"
+            android:prompt="@string/business_prompt"></Spinner>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Next>"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <!--aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
+
+
+    <!--<ListView-->
+    <!--android:id="@+id/listview"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="350dp"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_alignParentEnd="true"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_marginStart="8dp"-->
+    <!--android:layout_marginLeft="8dp"-->
+    <!--android:layout_marginTop="78dp"-->
+    <!--android:layout_marginEnd="5dp"-->
+    <!--android:layout_marginBottom="83dp" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/textView"-->
+    <!--android:layout_width="318dp"-->
+    <!--android:layout_height="29dp"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_alignParentEnd="true"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_marginStart="41dp"-->
+    <!--android:layout_marginLeft="41dp"-->
+    <!--android:layout_marginTop="23dp"-->
+    <!--android:layout_marginEnd="25dp"-->
+    <!--android:layout_marginRight="25dp"-->
+    <!--android:layout_marginBottom="459dp"-->
+    <!--android:text="Choose Cinema:"-->
+    <!--android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title" />-->
+
+
+    <!---->
+</android.support.constraint.ConstraintLayout>

@@ -13,5 +13,28 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <!--aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
+    <string name="business_prompt">Choose a Bussiness Type</string>
+    <string name="country_prompt">Choose a Country</string>
     <string name="order_movie">Order Movie</string>
+    <string-array name="country_arrays">
+        <item>Tel Aviv</item>
+        <item>Jerusalem</item>
+        <item>Ariel</item>
+        <item>Petach-Tikva</item>
+        <item>Beer Sheva</item>
+        <item>Haifa</item>
+        <item>Zfat</item>
+    </string-array>
+    <string-array name="business_arrays">
+        <item>Action</item>
+        <item>Comedy</item>
+        <item>Romance</item>
+        <item>Animation</item>
+        <item>Crime</item>
+        <item>Fantasy</item>
+    </string-array>
+    <!--aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
 </resources>
+
