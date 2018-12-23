@@ -24,7 +24,10 @@ public class Choose_Date extends AppCompatActivity {
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
 
                 String date =  dayOfMonth +"."+ month+"."+ year ;
-                Toast.makeText(Choose_Date.this, "Date: " + date,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(Choose_Date.this, "Date: " + date,Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent (Choose_Date.this, Choose_Cinema.class);
+                intent.putExtra("date", "\n\n The date is:  " +date +"\n");
+                startActivity(intent);
             }
         });
 

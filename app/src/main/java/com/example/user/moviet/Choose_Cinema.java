@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class Choose_Cinema extends AppCompatActivity {
                 String item = adapter.getItemAtPosition(position).toString();
 
                 // Showing selected spinner item
-                Toast.makeText(getApplicationContext(), "Selected Country : " + item, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), "Cinema : " + item, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -68,7 +69,7 @@ public class Choose_Cinema extends AppCompatActivity {
                 String item = adapter.getItemAtPosition(position).toString();
 
                 // Showing selected spinner item
-                Toast.makeText(getApplicationContext(), "Bussiness Type : " + item, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), "Genre : " + item, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -78,7 +79,15 @@ public class Choose_Cinema extends AppCompatActivity {
             }
 
         });
+
+
+        TextView textView=findViewById(R.id.textView9);
         Button button = findViewById(R.id.button10);
+
+        String date=getIntent().getStringExtra("date");
+        if(date!=null)
+            textView.setText(date);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +96,16 @@ public class Choose_Cinema extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button button13 = findViewById(R.id.button13);
+        button13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent (Choose_Cinema.this, Choose_Movie.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
