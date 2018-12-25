@@ -35,6 +35,7 @@
         <item>Crime</item>
         <item>Fantasy</item>
     </string-array>
+    <string name="title_activity_register">Register</string>
     <!--aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
 </resources>
 
