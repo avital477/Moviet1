@@ -26,9 +26,6 @@ public class Select {
         return this.myGenre;
     }
 
-    public void Print(){
-        Log.d("My Print is: ",this.myGenre);
-        Log.d(this.myCinema,this.myDate);
-    }
+
 
 }

@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 //end register***********
+
         emailInput = (EditText) findViewById(R.id.editText);
         passowrdInput = (EditText) findViewById(R.id.editText2);
 
@@ -48,40 +49,49 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String emailInputString = emailInput.getText().toString().trim();
                 final String passwordInputString = passowrdInput.getText().toString().trim();
-
                 final DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 
-                db.child("Users").child(emailInputString.replace(".", "|"))
-                        .addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                boolean loginIsOk = false;
-                                User user = null;
-//                                Toast.makeText(MainActivity.this, "before: " + dataSnapshot.getValue(), Toast.LENGTH_LONG).show();
-                                if(dataSnapshot.getValue() != null){
-//                                    Toast.makeText(MainActivity.this, emailInputString+" , "+passwordInputString, Toast.LENGTH_LONG).show();
-                                    if(passwordInputString.equals(dataSnapshot.getValue())){
-                                        loginIsOk = true;
-//                                        Toast.makeText(MainActivity.this, "login is OK", Toast.LENGTH_LONG).show();
-//                                        user.setEmail(emailInputString);
-//                                        user.setPassword(passwordInputString);
+                db.child("Users");
+                db.child(emailInputString.replace(".", "|"));
+                db.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        boolean loginIsOk = false;
+                        User user = null;
+                        final Object myPath = dataSnapshot.child("Users").child(emailInputString.replace(".", "|")).getValue();
 
-                                        Intent myIntent = new Intent(MainActivity.this, Order_or_Cancle.class);
-                                        startActivity(myIntent);
+                        if (myPath.toString() != null) { // User is correct
+                            if (passwordInputString.equals(myPath)) { // User is correct and Password is correct
+                                loginIsOk = true;
 
-                                    }
-                                    else Toast.makeText(MainActivity.this, "Wrong Password! Please try again", Toast.LENGTH_LONG).show();
+                                Intent myIntent = new Intent(MainActivity.this, Order_or_Cancle.class);
+                                startActivity(myIntent); // Go to order or cancel activity
 
-                                }
-                                else Toast.makeText(MainActivity.this, "Wrong User! Please try again", Toast.LENGTH_LONG).show();
-                            }
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) { }
+                            } else // User is correct, but password is wrong.
+                                Toast.makeText(MainActivity.this, "Wrong Password! Please try again", Toast.LENGTH_LONG).show();
+
+                        }
+//                        if (loginIsOk) {
+//                            user.setEmail(emailInputString);
+//                            user.setPassword(passwordInputString);
+//                            AuthenticatedUserHolder.instance.setAppUser(user);
+//                            Toast.makeText(MainActivity.this, "User: " + AuthenticatedUserHolder.instance.getAppUser(), Toast.LENGTH_LONG).show();
+//                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                    }
                 });
+                // User is wrong
 //                Toast.makeText(MainActivity.this, "Wrong User! Please try again", Toast.LENGTH_LONG).show();
+//                Intent myIntent = new Intent(MainActivity.this, MainActivity.class);
+//                startActivity(myIntent);
             }
         });
 //Endstart******
+
     }
 }
 
