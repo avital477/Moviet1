@@ -5,9 +5,9 @@ import android.util.Log;
 public class Select {
 
 //    String myUser;
-    String myCinema;
-    String myGenre;
-    String myDate;
+    private String myCinema;
+    private String myGenre;
+    private String myDate;
 
     public Select(){ }
 
@@ -16,6 +16,19 @@ public class Select {
         this.myGenre=genre;
         this.myDate=date;
     }
+
+    public void setMyCinema(String myCinema) {
+        this.myCinema = myCinema;
+    }
+
+    public void setMyGenre(String myGenre) {
+        this.myGenre = myGenre;
+    }
+
+    public void setMyDate(String myDate) {
+        this.myDate = myDate;
+    }
+
     public String getMyCinema(){
         return this.myCinema;
     }
@@ -26,6 +39,12 @@ public class Select {
         return this.myGenre;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Select{" +
+                "myCinema='" + myCinema + '\'' +
+                ", myGenre='" + myGenre + '\'' +
+                ", myDate='" + myDate + '\'' +
+                '}';
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.user.moviet;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,61 +27,26 @@ import static com.example.user.moviet.R.id.textView9;
 //import static com.example.user.moviet.S
 
 public class Choose_Movie extends AppCompatActivity {
-    Spinner getCinema;
-    Spinner getGenre;
-    TextView getDate;
+
+    TextView textView7;
+    TextView textView8;
+    TextView textView10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose__cinema);
-        getCinema=(Spinner)findViewById(spCountries);
-        getGenre = (Spinner)findViewById(spBussinessType);
-        getDate=(TextView)findViewById(textView9);
-    }
+        setContentView(R.layout.activity_choose__movie);
 
-    public void onLoginClick(View v){
-        final String genreString= getGenre.toString();
-        final String dateString= getDate.toString();
-        final String cinemaString= getCinema.toString();
-        final DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+        textView7 = (TextView) findViewById(R.id.textView7);
+        textView8 = (TextView) findViewById(R.id.textView8);
+        textView10 = (TextView) findViewById(R.id.textView10);
 
-        db.child("Moviet")
-                .child(cinemaString.replace(".", "|")).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                boolean isCinema = false;
-//                boolean isGenre = false;
-//                boolean isDate = false;
-                Select selection=null;
-                Toast.makeText(Choose_Movie.this,"MyCinema ",Toast.LENGTH_SHORT).show();
+        textView7.setText(Choose_Cinema.mySelection.getMyDate());
+        textView8.setText(Choose_Cinema.mySelection.getMyGenre());
+        textView10.setText(Choose_Cinema.mySelection.getMyCinema());
 
-                if(dataSnapshot.exists()){
-                    selection=dataSnapshot.getValue(Select.class);
-                 //   if (cinemaString.equals(user.getPassword())) {
-                        Toast.makeText(Choose_Movie.this,"MyCinema "+selection.getMyCinema(),Toast.LENGTH_SHORT).show();
-                 //   }
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
-//        DatabaseReference r_db = db.child("Ariel").child(Genre1.replace(".", "|"));
-
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_choose__movie);
-
-//        DatabaseReference dbCinema;
-//      dbCinema= FirebaseDatabase.getInstance().getReference("moviet");
-//        dbCinema.addListenerForSingleValueEvent(valueEventListener);
-
-//        Firebase.setAndroidContext(this);
-//        send= (Button) findViewById(R.id.send_data);
 
     }
 

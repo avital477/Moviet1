@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 public class Choose_Date extends AppCompatActivity {
 
+public static String date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,7 @@ public class Choose_Date extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
 
-                String date = dayOfMonth + "." + month + "." + year;
+                date = dayOfMonth + "." + month + "." + year;
 //                Toast.makeText(Choose_Date.this, "Date: " + date,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Choose_Date.this, Choose_Cinema.class);
                 intent.putExtra("date", "\n\n The date is:  " + date + "\n");

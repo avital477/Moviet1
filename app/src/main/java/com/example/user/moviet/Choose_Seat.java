@@ -3,7 +3,7 @@ package com.example.user.moviet;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Choos_Seat extends AppCompatActivity {
+public class Choose_Seat extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
