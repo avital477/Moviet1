@@ -24,8 +24,8 @@ public static String date;
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-
-                date = dayOfMonth + "." + month + "." + year;
+                month=month+1;
+                date = dayOfMonth + "-" + month + "-" + year;
 //                Toast.makeText(Choose_Date.this, "Date: " + date,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Choose_Date.this, Choose_Cinema.class);
                 intent.putExtra("date", "\n\n The date is:  " + date + "\n");

@@ -17,6 +17,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Iterator;
+
 public class Choose_Cinema extends AppCompatActivity {
 
 
@@ -63,42 +65,58 @@ public class Choose_Cinema extends AppCompatActivity {
                 final String MyCinema = spCountries.getSelectedItem().toString();
                 final String MyGenre = spBusinessType.getSelectedItem().toString().trim();
                 final String MyDate = Choose_Date.date;
-                final DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+//                final DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 
-                db.child("Cinemas");
-                db.child(MyCinema.replaceAll(".", "|"));
-                db.child(MyGenre.replaceAll(".", "|"));
+//                db.child("Cinemas");
+//                db.child(MyCinema.replaceAll(".", "|"));
+//                db.child(MyGenre.replaceAll(".", "|"));
 
-                db.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        mySelection = new Select(MyCinema,MyGenre,MyDate); // Saving the costumer's choise.
-                      //  Toast.makeText(Choose_Cinema.this, mySelection.toString(),Toast.LENGTH_SHORT).show();
+//                db.addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                      mySelection = new Select(MyCinema,MyGenre,MyDate); // Saving the costumer's choise.
+//                      //  Toast.makeText(Choose_Cinema.this, mySelection.toString(),Toast.LENGTH_SHORT).show();
+//
+//                        DatabaseReference reference = (DatabaseReference) FirebaseDatabase.getInstance().getReference();
+//                        DatabaseReference MyDB = reference.child(MyCinema).child(MyGenre).child("0");
+//                        MyDB.addValueEventListener(new ValueEventListener() {
+//                            @Override
+//                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                                if (dataSnapshot.hasChildren()){
+//                                    Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
+//                                    Toast.makeText(Choose_Cinema.this, iterator.next().getKey(),Toast.LENGTH_SHORT).show();
+//
+//                                }
+//                            }
+//
+//                            @Override
+//                            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                            }
+//                        });
+//                        final Query query = reference.child(MyCinema).orderByChild(MyGenre).equalTo("0");//.orderByChild(MyDate);
+//                        query.addListenerForSingleValueEvent(new ValueEventListener() {
+                         //   @Override
+                           // public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                        DatabaseReference reference = (DatabaseReference) FirebaseDatabase.getInstance().getReference();
-
-                        final Query query = reference.child(MyCinema).orderByChild(MyGenre).equalTo("0");//.orderByChild(MyDate);
-                        query.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                                Toast.makeText(Choose_Cinema.this, query.toString(),Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(Choose_Cinema.this, query.toString(),Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(Choose_Cinema.this,Choose_Movie.class));
-                            }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                           // }
 
-                            }
-                        });
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
+//                            @Override
+//                            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                            }
+//                        });
+//
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                    }
+//                });
             }
         });
         }

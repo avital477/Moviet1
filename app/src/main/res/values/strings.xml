@@ -33,6 +33,7 @@
         <item>Romance</item>
         <item>Animation</item>
         <item>Crime</item>
+        <item>Drama</item>
         <item>Fantasy</item>
     </string-array>
     <string name="title_activity_register">Register</string>
