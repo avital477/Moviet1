@@ -28,23 +28,11 @@ public class User {
         this.password = password;
     }
 
-    public static class Cinema {
-
-        private String name;
-
-        public Cinema(){}
-
-        public Cinema(String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText emailInput;
     EditText passowrdInput;
+    public static User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,13 +60,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         boolean loginIsOk = false;
-                        User user = null;
                         final Object myPath = dataSnapshot.child("Users").child(emailInputString.replace(".", "|")).getValue();
 
                         if (myPath.toString() != null) { // User is correct
                             if (passwordInputString.equals(myPath)) { // User is correct and Password is correct
                                 loginIsOk = true;
-
+                                user = new User(emailInputString , passwordInputString);
                                 Intent myIntent = new Intent(MainActivity.this, Order_or_Cancle.class);
                                 startActivity(myIntent); // Go to order or cancel activity
 

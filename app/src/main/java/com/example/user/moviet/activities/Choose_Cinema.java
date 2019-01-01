@@ -5,11 +5,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.user.moviet.R;
+import com.example.user.moviet.model.MovieAdapter;
 import com.example.user.moviet.model.Select;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,12 +21,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class Choose_Cinema extends AppCompatActivity {
 
 
     public static Select mySelection;
     Spinner spCountries;
     Spinner spBusinessType;
+
+//    ListView listView;
+//
+//    ArrayList<String> myMovies = new ArrayList<String>();
 
 
     @Override
@@ -73,44 +83,10 @@ public class Choose_Cinema extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         mySelection = new Select(MyCinema,MyGenre,MyDate);
 
-//                        Toast.makeText(Choose_Cinema.this, mySelection.toString(),Toast.LENGTH_SHORT).show();
-
-//                        DatabaseReference reference = (DatabaseReference) FirebaseDatabase.getInstance().getReference();
-//                        DatabaseReference MyDB = reference.child(MyCinema).child(MyGenre).child("0");
-//                        MyDB.addValueEventListener(new ValueEventListener() {
-//                            @Override
-//                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                                if (dataSnapshot.hasChildren()){
-//                                    Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
-//                                    Toast.makeText(Choose_Cinema.this, iterator.next().getKey(),Toast.LENGTH_SHORT).show();
-//
-//                                }
-//                            }
-//
-//                            @Override
-//                            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                            }
-//                        });
-//                        final Query query = reference.child(MyCinema).orderByChild(MyGenre).equalTo("0");//.orderByChild(MyDate);
-//                        query.addListenerForSingleValueEvent(new ValueEventListener() {
-                         //   @Override
-                           // public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                               // Toast.makeText(Choose_Cinema.this, query.toString(),Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(Choose_Cinema.this,Choose_Movie.class);
                         startActivity(i);
+                    }
 
-                            }
-
-//                            @Override
-//                            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                            }
-//                        });
-//
-//                    }
-//
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -118,6 +94,8 @@ public class Choose_Cinema extends AppCompatActivity {
                 });
             }
         });
-        }
+     // END button 13 - next *****************************
+
+    }
     }
 

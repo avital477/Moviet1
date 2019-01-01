@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -31,10 +34,7 @@ public class Choose_Movie extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference ref;
     ArrayList<String> myMovies = new ArrayList<String>();
-//    ArrayAdapter<String> adapter = new ArrayAdapter<Movie>(this,R.layout.activity_choose__movie,myMovies);
-
-
-
+    private static final String TAG = "Choose_Movie";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,27 +56,47 @@ public class Choose_Movie extends AppCompatActivity {
 
 
         database = FirebaseDatabase.getInstance();
+        Log.v(TAG, "MyCinema "+MyCinema+" Mydate "+MyDate);
         ref = database.getReference("Cinemas").child(MyCinema).child(MyGenre).child(MyDate);
-
-
         ref.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                Toast.makeText(Choose_Movie.this,dataSnapshot.child("0").getValue().toString()+" "+dataSnapshot.child("2").getValue().toString()+" "+dataSnapshot.child("Shrek").child("0").getValue().toString(),Toast.LENGTH_SHORT).show();
+
                     int count=0;
-                    for(DataSnapshot ds: dataSnapshot.getChildren()) {
-                        myMovies.add(ds.getValue()+ " "+ ds.getKey());
-                        count++;
-//                        Toast.makeText(Choose_Movie.this, ds.getValue().toString(),Toast.LENGTH_SHORT).show();
-//                        adapter.add(ds.getValue().toString());
-                    }
+//                Log.v(TAG, dataSnapshot.toString());
+//                Log.v(TAG, dataSnapshot.getChildren().toString());
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    String name = ds.getKey();
+//                    Toast.makeText(Choose_Movie.this,"My name "+name,Toast.LENGTH_SHORT).show();
+                    myMovies.add(name);
+                    count++;
+                }
+//                dataSnapshot.child(dataSnapshot.getKey());
+//
+//                Toast.makeText(Choose_Movie.this,dataSnapshot.child(dataSnapshot.getKey()).toString(),Toast.LENGTH_SHORT).show();
+//                    for(DataSnapshot ds: dataSnapshot.getChildren()) {
+//                    myMovies.add(ds.getValue()+ " "+ ds.getKey());
+////                        Toast.makeText(Choose_Movie.this,ds.,Toast.LENGTH_SHORT).show();
+//
+//                    count++;
+//                }
+
                     ArrayAdapter<String> adapter = new MovieAdapter(getApplicationContext(),myMovies);
                     if (count==0) {
-                        Toast.makeText(Choose_Movie.this, "No movies today, choose another date.",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Choose_Movie.this,Choose_Cinema.class));
+                        Toast.makeText(Choose_Movie.this, "No movies today, go back and choose another date.",Toast.LENGTH_SHORT).show();
                     }
-                listView.setAdapter(adapter);
+
+                    listView.setAdapter(adapter);
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                String myChoise = myMovies.get(position);
+                                Intent intent= new Intent(Choose_Movie.this,Choose_Seat.class);
+                                intent.putExtra("My choise: ",myChoise);
+                                startActivity(intent);
+                        }
+                    });
             }
 
             @Override

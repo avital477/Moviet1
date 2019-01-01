@@ -34,10 +34,8 @@ public View getView(int position, View convertView, ViewGroup parent) {
         // Lookup view for data population
         TextView tvName = (TextView) convertView.findViewById(R.id.movie_id_txt);
 
-//        TextView tvHome = (TextView) convertView.findViewById(R.id.tvHome);
         // Populate the data into the template view using the data object
-//        tvName.setText(user.name);
-//        tvHome.setText(user.hometown);
+
         tvName.setText(new_movie_id);
         // Return the completed view to render on screen
         return convertView;
