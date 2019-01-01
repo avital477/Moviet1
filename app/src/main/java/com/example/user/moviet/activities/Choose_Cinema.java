@@ -1,4 +1,4 @@
-package com.example.user.moviet;
+package com.example.user.moviet.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,16 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.user.moviet.R;
+import com.example.user.moviet.model.Select;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.Iterator;
 
 public class Choose_Cinema extends AppCompatActivity {
 
@@ -25,7 +23,6 @@ public class Choose_Cinema extends AppCompatActivity {
     public static Select mySelection;
     Spinner spCountries;
     Spinner spBusinessType;
-    //DON'T FORGET DATE
 
 
     @Override
@@ -65,18 +62,19 @@ public class Choose_Cinema extends AppCompatActivity {
                 final String MyCinema = spCountries.getSelectedItem().toString();
                 final String MyGenre = spBusinessType.getSelectedItem().toString().trim();
                 final String MyDate = Choose_Date.date;
-//                final DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+                final DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 
-//                db.child("Cinemas");
-//                db.child(MyCinema.replaceAll(".", "|"));
-//                db.child(MyGenre.replaceAll(".", "|"));
+                db.child("Cinemas");
+                db.child(MyCinema.replaceAll(".", "|"));
+                db.child(MyGenre.replaceAll(".", "|"));
 
-//                db.addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                      mySelection = new Select(MyCinema,MyGenre,MyDate); // Saving the costumer's choise.
-//                      //  Toast.makeText(Choose_Cinema.this, mySelection.toString(),Toast.LENGTH_SHORT).show();
-//
+                db.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        mySelection = new Select(MyCinema,MyGenre,MyDate);
+
+//                        Toast.makeText(Choose_Cinema.this, mySelection.toString(),Toast.LENGTH_SHORT).show();
+
 //                        DatabaseReference reference = (DatabaseReference) FirebaseDatabase.getInstance().getReference();
 //                        DatabaseReference MyDB = reference.child(MyCinema).child(MyGenre).child("0");
 //                        MyDB.addValueEventListener(new ValueEventListener() {
@@ -100,9 +98,10 @@ public class Choose_Cinema extends AppCompatActivity {
                            // public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                                // Toast.makeText(Choose_Cinema.this, query.toString(),Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Choose_Cinema.this,Choose_Movie.class));
+                        Intent i = new Intent(Choose_Cinema.this,Choose_Movie.class);
+                        startActivity(i);
 
-                           // }
+                            }
 
 //                            @Override
 //                            public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -112,11 +111,11 @@ public class Choose_Cinema extends AppCompatActivity {
 //
 //                    }
 //
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                    }
-//                });
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
         }

@@ -14,21 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Order_or_Cancle" />
-        <activity android:name=".Order_Movie" />
-        <activity android:name=".Choose_Cinema" />
-        <activity android:name=".Choose_Genre" />
-        <activity android:name=".Choose_Date" />
-        <activity android:name=".Choose_Movie" />
-        <activity android:name=".Choose_Seat" />
-        <activity android:name=".Register"></activity>
+        <activity android:name=".activities.Order_or_Cancle" />
+        <activity android:name=".activities.Choose_Cinema" />
+        <activity android:name=".activities.Choose_Date" />
+        <activity android:name=".activities.Choose_Movie" />
+        <activity android:name=".activities.Choose_Seat" />
+        <activity android:name=".activities.Register"></activity>
     </application>
 
 </manifest>

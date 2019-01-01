@@ -1,4 +1,6 @@
-package com.example.user.moviet;
+package com.example.user.moviet.activities;
+
+import com.example.user.moviet.model.User;
 
 public class AuthenticatedUserHolder {
 

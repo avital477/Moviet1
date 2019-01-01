@@ -1,4 +1,4 @@
-package com.example.user.moviet;
+package com.example.user.moviet.model;
 
 import android.util.Log;
 

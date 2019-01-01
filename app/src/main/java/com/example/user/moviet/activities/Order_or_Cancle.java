@@ -1,9 +1,11 @@
-package com.example.user.moviet;
+package com.example.user.moviet.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.user.moviet.R;
 
 public class Order_or_Cancle extends AppCompatActivity {
 

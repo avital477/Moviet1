@@ -1,4 +1,4 @@
-package com.example.user.moviet;
+package com.example.user.moviet.model;
 
 public class Movie {
     private String name;

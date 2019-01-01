@@ -1,7 +1,9 @@
-package com.example.user.moviet;
+package com.example.user.moviet.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.user.moviet.R;
 
 public class Choose_Seat extends AppCompatActivity {
 

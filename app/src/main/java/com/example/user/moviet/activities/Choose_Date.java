@@ -1,15 +1,12 @@
-package com.example.user.moviet;
+package com.example.user.moviet.activities;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.user.moviet.R;
 
 public class Choose_Date extends AppCompatActivity {
 
@@ -24,7 +21,7 @@ public static String date;
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                month=month+1;
+                month = month + 1;
                 date = dayOfMonth + "-" + month + "-" + year;
 //                Toast.makeText(Choose_Date.this, "Date: " + date,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Choose_Date.this, Choose_Cinema.class);

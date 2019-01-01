@@ -1,4 +1,4 @@
-package com.example.user.moviet;
+package com.example.user.moviet.activities;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.user.moviet.R;
+import com.example.user.moviet.model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
