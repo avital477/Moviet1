@@ -29,6 +29,7 @@ public class Choose_Seat extends AppCompatActivity {
     TextView textView15;
     private static final String TAG = "Choose_Seat";
     DatabaseReference ref;
+    String freeSeats;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,7 @@ public class Choose_Seat extends AppCompatActivity {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String freeSeats = dataSnapshot.getValue().toString();
+                freeSeats = dataSnapshot.getValue().toString();
                 textView15.setText(textView15.getText() + freeSeats);
 //                Toast.makeText(Choose_Seat.this, "freeSeats "+freeSeats,Toast.LENGTH_SHORT).show();
                 Toast.makeText(Choose_Seat.this, user.getEmail()+" "+user.getPassword(),Toast.LENGTH_SHORT).show();
@@ -91,15 +92,24 @@ public class Choose_Seat extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                db.child("Cinemas")
+                        .child(Choose_Cinema.mySelection.getMyCinema())
+                        .child(Choose_Cinema.mySelection.getMyGenre())
+                        .child(Choose_Cinema.mySelection.getMyDate())
+                        .child(myChoise).child(user.getEmail()).setValue(NumOfSeats);
 
 
-//                EditText editText5 = (EditText) findViewById(R.id.editText5);
-//                TotalPrice = (TextView)findViewById(R.id.textView14);
-//                NumOfSeats = Integer.parseInt(editText5.getText().toString());
-//
-//                TotalPrice.setText("Total price: "+  NumOfSeats * 10 + "$");
-////                Toast.makeText(Choose_Seat.this, "your price: "+NumOfSeats,Toast.LENGTH_SHORT).show();
+                int updateSeats= Integer.parseInt(freeSeats)-NumOfSeats;
+                db.child("Cinemas")
+                        .child(Choose_Cinema.mySelection.getMyCinema())
+                        .child(Choose_Cinema.mySelection.getMyGenre())
+                        .child(Choose_Cinema.mySelection.getMyDate())
+                        .child(myChoise).child("Theater").setValue(updateSeats);
 
+                Toast.makeText(Choose_Seat.this, "update free seats: "+updateSeats,Toast.LENGTH_SHORT).show();
+
+                Intent myIntent = new Intent(Choose_Seat.this, Pay.class);
+                startActivity(myIntent);
             }
         });
 //------- End next Button ------------------------------------------------------------------

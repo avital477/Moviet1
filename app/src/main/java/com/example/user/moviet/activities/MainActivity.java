@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                         if (myPath.toString() != null) { // User is correct
                             if (passwordInputString.equals(myPath)) { // User is correct and Password is correct
                                 loginIsOk = true;
-                                user = new User(emailInputString , passwordInputString);
+                                user = new User(emailInputString, passwordInputString);
                                 Intent myIntent = new Intent(MainActivity.this, Order_or_Cancle.class);
                                 startActivity(myIntent); // Go to order or cancel activity
 
@@ -94,6 +94,18 @@ public class MainActivity extends AppCompatActivity {
         });
 //Endstart******
 
+        // manager*************************
+
+        Button manager = findViewById((R.id.button9));
+        manager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent myIntent = new Intent(MainActivity.this, ManagerLogIn.class);
+                   startActivity(myIntent);
+            }
+        });
+
+
     }
 }
-

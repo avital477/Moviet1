@@ -26,7 +26,11 @@
         <activity android:name=".activities.Choose_Date" />
         <activity android:name=".activities.Choose_Movie" />
         <activity android:name=".activities.Choose_Seat" />
-        <activity android:name=".activities.Register"></activity>
+        <activity android:name=".activities.Register" />
+        <activity android:name=".activities.Pay" />
+        <activity android:name=".SaveCancelation" />
+        <activity android:name=".activities.UserCancel" />
+        <activity android:name=".activities.ManagerLogIn"></activity>
     </application>
 
 </manifest>
