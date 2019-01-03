@@ -30,7 +30,9 @@
         <activity android:name=".activities.Pay" />
         <activity android:name=".SaveCancelation" />
         <activity android:name=".activities.UserCancel" />
-        <activity android:name=".activities.ManagerLogIn"></activity>
+        <activity android:name=".activities.ManagerLogIn" />
+        <activity android:name=".activities.InsertMovies" />
+        <activity android:name=".activities.ManagerDate"></activity>
     </application>
 
 </manifest>

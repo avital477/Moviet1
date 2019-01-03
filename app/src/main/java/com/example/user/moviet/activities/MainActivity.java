@@ -60,26 +60,23 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         boolean loginIsOk = false;
-                        final Object myPath = dataSnapshot.child("Users").child(emailInputString.replace(".", "|")).getValue();
+                        final Object myPasswordPath = dataSnapshot.child("Users").child(emailInputString.replace(".", "|")).getValue();
+                        final Object myEmailPath = dataSnapshot.child("Users").child(emailInputString.replace(".", "|")).getKey();
 
-                        if (myPath.toString() != null) { // User is correct
-                            if (passwordInputString.equals(myPath)) { // User is correct and Password is correct
+
+                        if (myPasswordPath.toString() != null) {
+                            if (passwordInputString.equals(myPasswordPath) && emailInputString.replace(".", "|").equals(myEmailPath)) { // User is correct and Password is correct
                                 loginIsOk = true;
                                 user = new User(emailInputString, passwordInputString);
+                                Toast.makeText(MainActivity.this, myEmailPath.toString(), Toast.LENGTH_LONG).show();
                                 Intent myIntent = new Intent(MainActivity.this, Order_or_Cancle.class);
                                 startActivity(myIntent); // Go to order or cancel activity
 
-                            } else // User is correct, but password is wrong.
-                                Toast.makeText(MainActivity.this, "Wrong Password! Please try again", Toast.LENGTH_LONG).show();
-
+                            }
+                            else { // User is correct, but password is wrong.
+                                Toast.makeText(MainActivity.this, "Wrong Password! Please try again " +myPasswordPath, Toast.LENGTH_LONG).show();
+                            }
                         }
-//                        if (loginIsOk) {
-//                            user.setEmail(emailInputString);
-//                            user.setPassword(passwordInputString);
-//                            AuthenticatedUserHolder.instance.setAppUser(user);
-//                            Toast.makeText(MainActivity.this, "User: " + AuthenticatedUserHolder.instance.getAppUser(), Toast.LENGTH_LONG).show();
-//                        }
-
                     }
 
                     @Override

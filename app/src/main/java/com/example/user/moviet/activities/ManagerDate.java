@@ -8,24 +8,24 @@ import android.widget.CalendarView;
 
 import com.example.user.moviet.R;
 
-public class Choose_Date extends AppCompatActivity {
+public class ManagerDate extends AppCompatActivity {
 
-public static String date;
+    public static String date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose__date);
+        setContentView(R.layout.activity_manager_date);
 
-        CalendarView calendarView = findViewById(R.id.calendarView2);
+        CalendarView calendarView = findViewById(R.id.calendarView22);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 month = month + 1;
                 date = dayOfMonth + "-" + month + "-" + year;
 //                Toast.makeText(Choose_Date.this, "Date: " + date,Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Choose_Date.this, Choose_Cinema.class);
-                intent.putExtra("date", "\n\n The date is:  " + date );
+                Intent intent = new Intent(ManagerDate.this, InsertMovies.class);
+                intent.putExtra("date", "\n\n The date is:  " + date + "\n");
                 startActivity(intent);
             }
         });
