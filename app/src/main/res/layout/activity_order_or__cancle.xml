@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f8fff0"
     tools:context=".activities.Order_or_Cancle">
 
     <Button
+        android:background="#569f58"
         android:id="@+id/button2"
         android:layout_width="160dp"
         android:layout_height="79dp"
@@ -26,6 +28,7 @@
         app:layout_constraintVertical_bias="0.346" />
 
     <Button
+        android:background="#569f58"
         android:id="@+id/button4"
         android:layout_width="167dp"
         android:layout_height="72dp"

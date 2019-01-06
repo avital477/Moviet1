@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fae9e3"
+
     tools:context=".activities.ManagerLogIn">
 
     <TextView
@@ -35,7 +37,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:inputType="textPassword|number"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
@@ -54,6 +56,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="NEXT>"
+        android:background="#FF8880"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

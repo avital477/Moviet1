@@ -28,11 +28,10 @@
         <activity android:name=".activities.Choose_Seat" />
         <activity android:name=".activities.Register" />
         <activity android:name=".activities.Pay" />
-        <activity android:name=".SaveCancelation" />
-        <activity android:name=".activities.UserCancel" />
         <activity android:name=".activities.ManagerLogIn" />
         <activity android:name=".activities.InsertMovies" />
-        <activity android:name=".activities.ManagerDate"></activity>
+        <activity android:name=".activities.ManagerDate" />
+        <activity android:name=".activities.ManagerList"></activity>
     </application>
 
 </manifest>

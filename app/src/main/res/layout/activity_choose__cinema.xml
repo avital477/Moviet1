@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f8fff0"
     tools:context=".activities.Choose_Cinema"
     tools:layout_editor_absoluteY="81dp">
 
@@ -42,6 +43,7 @@
         app:layout_constraintVertical_bias="0.02" />
 
     <Button
+        android:background="#569f58"
         android:id="@+id/button10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -72,6 +74,7 @@
         app:layout_constraintVertical_bias="0.308" />
 
     <Spinner
+        android:background="#f8fff0"
         android:id="@+id/spCountries"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -106,6 +109,7 @@
         app:layout_constraintVertical_bias="0.098" />
 
     <Spinner
+        android:background="#f8fff0"
         android:id="@+id/spBussinessType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -129,6 +133,7 @@
 
 
     <Button
+        android:background="#569f58"
         android:id="@+id/button13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

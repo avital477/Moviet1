@@ -40,7 +40,7 @@ public class Register extends AppCompatActivity {
 
                 Intent myIntent = new Intent(Register.this, MainActivity.class);
                 startActivity(myIntent);
-               // Toast.makeText(Register.this,emailInput.getText().toString()+" , "+passowrdInput.getText().toString(), Toast.LENGTH_LONG).show();
+                // Toast.makeText(Register.this,emailInput.getText().toString()+" , "+passowrdInput.getText().toString(), Toast.LENGTH_LONG).show();
 
             }
         });

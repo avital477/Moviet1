@@ -20,6 +20,7 @@
         app:layout_constraintVertical_bias="0.368" />
 
     <Button
+        android:background="#80C6FF"
         android:id="@+id/button"
         android:layout_width="239dp"
         android:layout_height="68dp"
@@ -48,6 +49,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="#569f58"
         android:onClick="onButtonClick"
         android:text="Start!"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,7 +77,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.483"
-        tools:text="Enter E-mail" />
+        tools:text="Enter Name" />
 
     <EditText
         android:id="@+id/editText2"
@@ -107,6 +109,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="Manager"
+        android:background="#FF8880"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

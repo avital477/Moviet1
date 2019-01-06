@@ -5,25 +5,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.user.moviet.R;
 
-public class Pay extends AppCompatActivity {
+public class ManagerList extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pay);
+        setContentView(R.layout.activity_manager_list);
 
-        Button pay= (Button) findViewById(R.id.button6) ;
-        pay.setOnClickListener(new View.OnClickListener() {
+        Button button12= (Button) findViewById(R.id.button12) ;
+        button12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Pay.this, "Your reservation has been confirmed, enjoy! :) ", Toast.LENGTH_SHORT).show();
-                Intent myIntent = new Intent(Pay.this, Order_or_Cancle.class);
+                Intent myIntent = new Intent(ManagerList.this, InsertMovies.class);
                 startActivity(myIntent);
+
             }
         });
+
     }
 }

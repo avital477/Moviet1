@@ -43,7 +43,7 @@ public class ManagerLogIn extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         if (passowrdInput.getText().toString().equals(dataSnapshot.child("Manager").child("manager1").getValue().toString())){
-                            Intent intent = new Intent(ManagerLogIn.this, InsertMovies.class);
+                            Intent intent = new Intent(ManagerLogIn.this, ManagerList.class);
                             startActivity(intent);
                         }
                         else{

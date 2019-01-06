@@ -5,11 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.user.moviet.R;
-import com.example.user.moviet.SaveCancelation;
 
 public class Order_or_Cancle extends AppCompatActivity {
 
@@ -18,9 +15,8 @@ public class Order_or_Cancle extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_or__cancle);
 
-
-                       Button order= (Button) findViewById(R.id.button2) ;
-                order.setOnClickListener(new View.OnClickListener() {
+        Button order= (Button) findViewById(R.id.button2) ;
+        order.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent myIntent = new Intent(getBaseContext(), Choose_Cinema.class);
@@ -29,15 +25,15 @@ public class Order_or_Cancle extends AppCompatActivity {
             }
         });
 
-        Button cancel= (Button) findViewById(R.id.button4) ;
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(getBaseContext(), UserCancel.class);
-                startActivity(myIntent);
-
-            }
-        });
+//        Button cancel= (Button) findViewById(R.id.button4) ;
+//        cancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent myIntent = new Intent(getBaseContext(), UserCancel.class);
+//                startActivity(myIntent);
+//
+//            }
+//        });
 
 
 

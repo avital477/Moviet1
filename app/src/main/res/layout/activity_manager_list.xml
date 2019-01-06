@@ -4,42 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Choose_Genre">
+    android:background="#fae9e3"
+    tools:context=".activities.ManagerList">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="258dp"
-        android:layout_height="37dp"
+    <Button
+        android:background="#FF8880"
+        android:id="@+id/button12"
+        android:layout_width="243dp"
+        android:layout_height="55dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Choose genre:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:text="Insert new movies"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintVertical_bias="0.409" />
 
-    <ListView
-        android:id="@+id/listviewGenre"
-        android:layout_width="319dp"
-        android:layout_height="330dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginLeft="6dp"
+    <Button
+        android:background="#FF8880"
+        android:id="@+id/button15"
+        android:layout_width="242dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:text="Special approvals "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.689" />
-
+        app:layout_constraintVertical_bias="0.675" />
 
 </android.support.constraint.ConstraintLayout>

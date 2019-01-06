@@ -59,24 +59,37 @@ public class MainActivity extends AppCompatActivity {
                 db.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        boolean loginIsOk = false;
-                        final Object myPasswordPath = dataSnapshot.child("Users").child(emailInputString.replace(".", "|")).getValue();
-                        final Object myEmailPath = dataSnapshot.child("Users").child(emailInputString.replace(".", "|")).getKey();
+
+                        if (dataSnapshot.exists()) {
+                            boolean loginIsOk = false;
+                            final Object myPasswordPath = dataSnapshot.child("Users").child(emailInputString.replace(".", "|")).getValue();
+                            final Object myEmailPath = dataSnapshot.child("Users").child(emailInputString.replace(".", "|")).getKey();
 
 
-                        if (myPasswordPath.toString() != null) {
-                            if (passwordInputString.equals(myPasswordPath) && emailInputString.replace(".", "|").equals(myEmailPath)) { // User is correct and Password is correct
-                                loginIsOk = true;
-                                user = new User(emailInputString, passwordInputString);
-                                Toast.makeText(MainActivity.this, myEmailPath.toString(), Toast.LENGTH_LONG).show();
-                                Intent myIntent = new Intent(MainActivity.this, Order_or_Cancle.class);
-                                startActivity(myIntent); // Go to order or cancel activity
+                            if (myPasswordPath.toString() != null) {
+                                if (passwordInputString.equals(myPasswordPath) && emailInputString.replace(".", "|").equals(myEmailPath)) { // User is correct and Password is correct
+                                    loginIsOk = true;
+                                    user = new User(emailInputString, passwordInputString);
+//                                    Toast.makeText(MainActivity.this, myEmailPath.toString(), Toast.LENGTH_LONG).show();
+                                    Intent myIntent = new Intent(MainActivity.this, Order_or_Cancle.class);
+                                    startActivity(myIntent); // Go to order or cancel activity
 
+                                }
+                                else { // User is correct, but password is wrong.
+                                    Toast.makeText(MainActivity.this, "Wrong Password! Please try again " + myPasswordPath, Toast.LENGTH_LONG).show();
+                                }
                             }
-                            else { // User is correct, but password is wrong.
-                                Toast.makeText(MainActivity.this, "Wrong Password! Please try again " +myPasswordPath, Toast.LENGTH_LONG).show();
-                            }
+                        }else{
+                            Intent myIntent = new Intent(MainActivity.this, MainActivity.class);
+                            startActivity(myIntent);
+                            Toast.makeText(MainActivity.this, "Wrong User! Please try again", Toast.LENGTH_LONG).show();
+
                         }
+//                        if (!dataSnapshot.exists()){
+//                            Intent myIntent = new Intent(MainActivity.this, MainActivity.class);
+////                            startActivity(myIntent);
+////                        }
+
                     }
 
                     @Override

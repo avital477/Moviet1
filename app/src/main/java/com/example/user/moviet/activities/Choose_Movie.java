@@ -56,7 +56,6 @@ public class Choose_Movie extends AppCompatActivity {
 
 
         database = FirebaseDatabase.getInstance();
-        Log.v(TAG, "MyCinema "+MyCinema+" Mydate "+MyDate);
         ref = database.getReference("Cinemas").child(MyCinema).child(MyGenre).child(MyDate);
         ref.addValueEventListener(new ValueEventListener() {
 
@@ -64,23 +63,12 @@ public class Choose_Movie extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                     int count=0;
-//                Log.v(TAG, dataSnapshot.toString());
-//                Log.v(TAG, dataSnapshot.getChildren().toString());
+
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                     String name = ds.getKey();
-//                    Toast.makeText(Choose_Movie.this,"My name "+name,Toast.LENGTH_SHORT).show();
                     myMovies.add(name);
                     count++;
                 }
-//                dataSnapshot.child(dataSnapshot.getKey());
-//
-//                Toast.makeText(Choose_Movie.this,dataSnapshot.child(dataSnapshot.getKey()).toString(),Toast.LENGTH_SHORT).show();
-//                    for(DataSnapshot ds: dataSnapshot.getChildren()) {
-//                    myMovies.add(ds.getValue()+ " "+ ds.getKey());
-////                        Toast.makeText(Choose_Movie.this,ds.,Toast.LENGTH_SHORT).show();
-//
-//                    count++;
-//                }
 
                     ArrayAdapter<String> adapter = new MovieAdapter(getApplicationContext(),myMovies);
                     if (count==0) {
